@@ -5,8 +5,7 @@ import numpy as np
 
 
 #Define symbols to included
-M, m, ell, g, x1, x2, x3, x4, F =\
-    sym.symbols('M, m, ell, g, x1, x2, x3, x4, F')
+M, m, ell, g, x1, x2, x3, x4, F = sym.symbols('M, m, ell, g, x1, x2, x3, x4, F')
 
 #Define phi
 phi = 4*m*ell*x4**2*sym.sin(x3) + 4*F - 3*m*g*sym.sin(x3)*sym.cos(x3)
@@ -28,8 +27,7 @@ dphi_x4_eq = dphi_x4.subs([(F, 0), (x3, 0), (x4, 0)])
 #sym.pprint(dphi_x4_eq)
 
 #Define psi
-psi = -3*(m*ell*x4**2*sym.sin(x3)*sym.cos(x3) + F*sym.cos(x3) - (M + m)*g*sym.sin(x3))
-psi /= (4*(M + m) - 3*m*sym.cos(x3)**2) * ell
+psi = -3*(m*ell*x4**2*sym.sin(x3)*sym.cos(x3) + F*sym.cos(x3) - (M + m)*g*sym.sin(x3)) / (4*(M + m) - 3*m*sym.cos(x3)**2) * ell
 
 #Derivatives of psi
 dpsi_F = psi.diff(F)
